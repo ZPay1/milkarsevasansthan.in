@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% block title %} Certificate {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+/* =============================================== 
+        Contact Us Styles 
+ =============================================== */
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+    background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.Contact_us_button:hover {
+  color: #fff;
+  background-color: crimson;
+  transition: 0.3s ease;
+}
+
+.Contact_us_button a{
+    text-decoration: none;
+}
+/* =============================================== 
+        Certificate Styles 
+ =============================================== */
+
+
+  .certificates {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+  }
+  .certificate-card {
+      text-align: center;
+      width: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: #fff;
+      box-shadow: 0px 2px 10px #8e8d8d;
+      transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.6s ease;
+      color: black;
+      border-radius: 8px;
+      transition: transform 0.3s;
+      padding: 20px; 
+      font-size: 1.2rem; 
+      text-align: center;
+  }
+  .certificate-card:hover {
+    transform: scale(1) rotate(0deg); 
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+  .certificate-card h3{
+    font-size:20px;
+    color: #333;
+    padding: 5px;
+  }
+  .certificate-img {
+      width: 100%;
+       min-width: 200px; 
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .view-certificate {
+      margin-top: 10px;
+      background: crimson;
+      color: #fff;
+      border: none;
+      padding: 3px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 40%;
+      height: 40%;
+      background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .modal-content {
+      display: block;
+      margin: auto;
+      width: 60%;
+      max-width: 500px;
+      margin-top: 100px;
+  }
+
+  .close {
+      position: absolute;
+      top: 50px;
+      right: 29%;
+      font-size: 35px;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+  }
+@media (max-width: 768px) {
+    .modal {
+        width: 90%;
+        height: 90%;
+    }
+    .modal-content {
+        width: 90%;
+        margin-top: 100px;
+      
+    }
+     .close {
+      top: 60px;
+      right: 30px;
+      font-size: 30px;
+    
+  }
+
+  }
+
+/* =============================================== 
+        Cards Styles 
+ =============================================== */    
+.certificate-card {
+    opacity: 0; /* pehle hidden */
+    transform: translateY(-70px);
+    transition: all 1s ease-out;
+    
+}
+
+.certificate-card.show {
+    opacity: 1;
+    transform: translateY(0);
+} 
+
+</style>
+<body>
+ 
+    
+    <!-- Section Heading -->
+    <div class="text-center mb-5 mt-4">
+      <h3 class="fw-bold">
+        <h1 style="color: #FEDE00;">Cert<span style="color: crimson;">ificate</span></h1>
+
+      </h3>
+      <div class="d-flex justify-content-center align-items-center">
+        <span class="border-top border-2 border-danger w-25"></span>
+      </div>
+    </div>
+
+<section>
+
+  <div class="d-flex flex-wrap justify-content-center gap-4">
+      <div class="cards-wrapper">
+          <div id="certificates" class="certificates">
+            {% for c in  certificate %}
+      
+            <div class="certificate-card">
+                 <h3>{{c.title}}</h3>
+                <img src="{{c.image.url}}" alt="{{c.title}}" class="certificate-img">
+              
+                <button class="view-certificate" onclick="openModal('{{c.image.url}}')">{{c.button_text}}</button>
+            </div>
+                 
+           
+              {% endfor %}
+            </div>   
+          </div>
+      </div>
+
+    </div>
+
+    <!-- Modal for Full Image View -->
+    <div id="certificateModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    </div>
+</section>
+
+     <section class="container py-3 text-center">
+       <div class="Contact_us">
+            <a href="{% url 'contact_us' %}">
+                <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+            </a>  
+        </div>
+    </section>
+
+
+<!-- JavaScript for Modal Functionality -->
+<script>
+  function openModal(imageSrc) {
+      document.getElementById("certificateModal").style.display = "block";
+      document.getElementById("modalImage").src = imageSrc;
+  }
+
+  function closeModal() {
+      document.getElementById("certificateModal").style.display = "none";
+  }
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const aboutSections = document.querySelectorAll(".certificate-card"); // sabhi cards
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show"); // add animation class
+        observer.unobserve(entry.target);   // optional: animate only once
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // har card ko observe karo
+  aboutSections.forEach(section => observer.observe(section));
+});
+</script> 
+</body>
+</html>
+{% endblock %}

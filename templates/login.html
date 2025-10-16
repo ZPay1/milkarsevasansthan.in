@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+    background-color: #204163;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .login-container {
+      width: 400px;
+      background: #fff;
+      padding: 20px 25px;
+      border-radius: 5px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    @keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    }
+
+    .logo-image img {
+      max-height: 90px;
+      transition: transform 0.3s;
+    }
+    .logo-image img:hover {
+      transform: scale(1.05);
+    }
+    h4 {
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 18px;
+    }
+    .form-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #444;
+    }
+    .form-control {
+      height: 38px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    .form-control:focus {
+      border-color: #6a11cb;
+      box-shadow: 0 0 6px rgba(106,17,203,0.3);
+    }
+    .btn-primary {
+      background-color: crimson;
+      border: none;
+      height: 42px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn-primary:hover {
+        /* background-color: #FEDE00; */
+        opacity: 0.9;
+        transform: translateY(-1px);
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 6px;
+        color: #524f4f; 
+        font-weight: 500;
+        font-size: 15px;
+        letter-spacing: 0.3px;
+        }
+
+    .signup_class{
+        padding: 5px 20px;
+        background-color: #FEDE00;
+        display: block;
+        margin-top: 15px;
+        color: #d10000;
+        font-weight: 500;
+        font-size: 14px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo-image mb-2" style="margin-top: -60px;">
+      <img src="/media/Logo.png" alt="Logo" class="img-fluid">
+    </div>
+      <h4 style="font-size: 15px;">Welcome To Milkar Seva Sansthan</h4>
+      <!-- {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %} -->
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-danger">
+              {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+    <form method="post" >
+      {% csrf_token %}
+      
+      <!-- <div class="mb-2 text-start">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" placeholder="Enter email" required>
+      </div> -->
+      <div class="mb-2 text-start">
+        <label for="identifier" class="form-label">Email or Mobile</label>
+        <input type="text" name="email" id="identifier" class="form-control" placeholder="Enter email or mobile" required>
+    </div>
+
+
+      <div class="mb-2 text-start  position-relative ">
+        <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control rounded-3" id="password" name="password" required>
+            <span class="position-absolute top-52 end-0 translate-middle-y me-3 " style="cursor: pointer; margin-top: -20px; " onclick="togglePassword()">
+                <i id="eyeIcon" class="bi bi-eye-slash-fill"></i>
+            </span>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                <label class="form-check-label remember_me " for="remember">Remember Me</label>
+            </div>
+
+                <a href="#" class="text-decoration-none">Forgot Password?</a>
+        </div>
+   
+   
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+      </div>
+
+      <p style="font-size: 14px; margin-top: 2px; color: rgb(110, 108, 108);">Don't have an account ? <span><a style="text-decoration: none; margin-left: 5px;" href="{% url 'signup_view' %}">Sign Up Now</a></span></p>
+
+        <!-- <a href="{% url 'signup_view' %}" class="signup_class">Create an account ?</a> -->
+    </form>
+  </div>
+
+<script>
+function togglePassword() {
+  const passwordInput = document.getElementById('password');
+  const eyeIcon = document.getElementById('eyeIcon');
+  
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    eyeIcon.classList.remove("bi-eye-slash-fill");
+    eyeIcon.classList.add("bi-eye-fill");
+  } else {
+    passwordInput.type = "password";
+    eyeIcon.classList.remove("bi-eye-fill");
+    eyeIcon.classList.add("bi-eye-slash-fill");
+  }
+}
+ </script>
+
+    <!-- Bootstrap JS CDN (Optional if needed for components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

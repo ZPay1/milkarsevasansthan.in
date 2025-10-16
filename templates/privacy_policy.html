@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% block title %}Privacy Policy{% endblock %}
+
+{% block content %}
+<style>
+  .policy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #cc0000;
+    margin-bottom: 15px;
+  }
+
+  .subheading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+  }
+
+  .last-updated {
+    font-size: 0.9rem;
+    /* color: #706f6f; */
+    text-align: right;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  h4 {
+    color: #222;
+    font-size: 1rem;
+    font-weight: bold;
+    border-left: 5px solid #b80000;
+    padding-left: 12px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    /* color: #444; */
+  }
+
+  ul {
+    padding-left: 25px;
+    margin-bottom: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 576px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    h4 {
+      font-size: 1.4rem;
+    }
+
+    .policy-container {
+      padding: 40px 15px;
+    }
+  }
+
+
+  
+/* =================================
+        Contact Us Styles 
+  ================================== */
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+    background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Contact_us_button:hover {
+  color: #fff;
+  background-color: crimson;
+  transition: 0.3s ease;
+}
+.Contact_us_button a{
+    text-decoration: none;
+}
+
+/* ===============================
+       selectionStyles 
+    =============================== */  
+  ::selection {
+  background: purple;
+  color: #fff;
+}
+</style>
+
+<div class="policy-container">
+  <!-- Section Heading -->
+    <div class="text-center mb-5 mt-4">
+        <h3 class="fw-bold">
+          <h2 style="color: #FEDE00;">Privacy<span style="color: crimson;"> Policy</span></h2>
+          
+
+        </h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <span class="border-top border-2 border-danger w-25"></span>
+        </div>
+    </div>
+  <div class="subheading">Your privacy is our priority. Learn how we protect your data.</div>
+
+   <div class="last-updated">Last Updated: 9/5/2025</div>
+
+  <p>At Milkar Seva Sansthan, we value your privacy and are committed to protecting your personal information. This policy outlines our data practices.</p>
+
+  <h4>Information We Collect</h4>
+  <ul>
+    <li><strong>Personal Information:</strong> We collect details like your name, email, phone number, and payment info during registration, purchases, or app use.</li>
+    <li><strong>Usage Data:</strong> We collect device info, IP address, and activity logs to improve functionality and user experience.</li>
+    <li><strong>Location Data:</strong> With permission, we collect your location to offer services like nearest delivery options.</li>
+  </ul>
+
+  <h4>Use of Information</h4>
+  <p>We use your information for the following purposes:</p>
+  <ul>
+    <li><strong>Order Processing:</strong> To fulfill orders, process payments, and send updates.</li>
+    <li><strong>App Improvement:</strong> To analyze feedback and improve app features.</li>
+    <li><strong>Promotional Communications:</strong> To send offers and updates (with your consent).</li>
+    <li><strong>Fraud Prevention:</strong> To detect and stop fraudulent activities.</li>
+  </ul>
+
+  <h4>Information Sharing</h4>
+  <p>We don’t sell your data. We only share it with trusted service providers (like payment gateways and delivery partners) under strict confidentiality agreements.</p>
+
+  <h4>Data Security and Retention</h4>
+  <p>We protect your data with encryption, firewalls, and secure storage. Your data is retained only as long as needed for orders and legal compliance, after which it is securely deleted.</p>
+
+  <h4>User Rights</h4>
+  <p>You can request to access, update, or delete your personal data at any time. You can also ask how your data is used.</p>
+
+  <h4>Changes to Privacy Policy</h4>
+  <p>We may update this policy from time to time. All updates will be posted here with the revised “Last Updated” date.</p>
+</div>
+
+
+
+  <section class="container py-3 text-center">
+    <div class="Contact_us">
+      <a href="{% url 'contact_us' %}">
+                <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+      </a>  
+    </div>
+  
+  </section>
+{% endblock %}

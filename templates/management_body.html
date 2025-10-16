@@ -1,0 +1,126 @@
+
+{% extends 'base.html' %}
+{% block title %} Management Body {% endblock %}
+{% block content %}
+<style>
+/* ===============================
+        Cards Styles 
+    =============================== */  
+.card {
+    opacity: 0; /* pehle hidden */
+    transform: translateY(-70px);
+    transition: all 1s ease-out;
+    margin-top: 30px; 
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}  
+/* =============================================== 
+        Contact Us Styles 
+ =============================================== */
+
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 20px; */
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+    background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Contact_us_button:hover {
+  color: #fff;
+  background-color: crimson;
+  transition: 0.3s ease;
+}
+.Contact_us_button a{
+    text-decoration: none;
+}
+
+</style>
+<body>
+  <section class="py-5 bg-light">
+    <div class="container">
+      <!-- Section Heading -->
+        <div class="text-center mb-5 mt-4">
+          <h3 class="fw-bold">
+            <!-- <span class="text-danger">Our Team</span> Member -->
+            <h1 style="color: #FEDE00;">Our Management<span style="color: crimson;"> Body</span></h1>
+
+          </h3>
+          <div class="d-flex justify-content-center align-items-center">
+            <span class="border-top border-2 border-danger w-25"></span>
+          </div>
+        </div>
+
+      <!-- Team Members Row -->
+      <div class="row text-center g-4">
+           {% for member in members %} 
+            <!-- Member 4 -->
+            <div class="col-6 col-md-3">
+           
+              <div class="card shadow-sm border-0 h-100 p-3">
+                <div class="icon mb-3 text-danger fs-2">
+                <i class="fa-solid fa-user-friends"></i>
+                 
+                </div>
+                <h5 class="fw-bold mb-1">{{ member.name }}</h5>
+                <p class="text-muted mb-1">({{ member.designation }})</p>
+                <small class="text-secondary">{{ member.organization }}</small>
+              </div>
+            </div>
+            {% endfor %} 
+          </div>
+       
+
+      <!-- Button -->
+      <!-- <div class="text-center mt-5">
+        <a href="https://shriramnavyugtrust.org/our-team/" class="btn btn-danger btn-lg">
+          See Full Management Body <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+      </div> -->
+      
+    </div>
+      
+</section>
+ <section class="container py-3 text-center">
+     <div class="Contact_us">
+            <a href="{% url 'contact_us' %}">
+                <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+            </a>  
+        </div>
+   
+    </section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const aboutSections = document.querySelectorAll(".card"); // sabhi cards
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show"); // add animation class
+        observer.unobserve(entry.target);   // optional: animate only once
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // har card ko observe karo
+  aboutSections.forEach(section => observer.observe(section));
+});
+</script>
+   
+</body>
+</html>
+{% endblock %}

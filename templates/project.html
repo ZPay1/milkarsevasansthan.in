@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% block title %} Our Project{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  .projects-section {
+  background: #f9f9f9;
+  padding: 60px 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.projects-section .container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-intro {
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.project-category {
+  margin-bottom: 50px;
+}
+
+.project-category h3 {
+  font-size: 26px;
+  color: #d9534f; 
+  margin-bottom: 20px;
+  border-left: 5px solid #FEDE00;
+  padding-left: 10px;
+}
+
+.project-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+}
+
+.project-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.project-card p {
+  font-size: 16px;
+  color: #555;
+}
+
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 26px;
+  }
+  .section-intro {
+    font-size: 16px;
+  }
+  .project-card h4 {
+    font-size: 18px;
+  }
+}
+
+
+
+/* =============================================== 
+        Contact Us Styles 
+ =============================================== */
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 20px; */
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+    background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Contact_us_button:hover {
+  color: #fff;
+  background-color: crimson;
+  transition: 0.3s ease;
+}
+.Contact_us_button a{
+    text-decoration: none;
+}
+</style>
+
+
+
+     <!-- Section Heading -->
+    <div class="text-center mb-5 mt-4">
+        <h3 class="fw-bold">
+          <h1 style="color: #FEDE00;">Our<span style="color: crimson;">Projects</span></h1>
+          
+
+        </h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <span class="border-top border-2 border-danger w-25"></span>
+        </div>
+    </div>
+    
+<section class="projects-section">
+  <div class="container">
+
+    <p class="section-intro">
+      Our projects are designed to create lasting, positive changes across various sectors, 
+      with each initiative carefully planned and executed to address the specific needs of 
+      the communities we serve. Guided by the teachings of <strong>Lord ShriRam</strong>, 
+      we focus on empowering individuals, promoting sustainability, and fostering social well-being.
+    </p>
+
+    <!-- Category Block -->
+    <div class="project-category">
+      <h3>Youth Empowerment</h3>
+      <div class="project-card">
+        <h4>1. Skill Development Centers</h4>
+        <p>We have set up skill development centers in multiple regions, offering vocational training in IT, carpentry, tailoring, and more. These centers empower young people with the skills required to secure jobs or start their own businesses.</p>
+      </div>
+      <div class="project-card">
+        <h4>2. Youth Leadership Program</h4>
+        <p>Through our Youth Leadership Program, we mentor young individuals to become future leaders in their communities. By focusing on confidence-building, communication skills, and leadership development, we aim to create impactful change-makers.</p>
+      </div>
+    </div>
+
+    <div class="project-category">
+      <h3>Women Empowerment</h3>
+      <div class="project-card">
+        <h4>1. Women’s Entrepreneurship Initiative</h4>
+        <p>This project offers women the resources and training they need to start and manage their own businesses. We provide micro-loans, business development support, and continuous mentorship to ensure their entrepreneurial success.</p>
+      </div>
+      <div class="project-card">
+        <h4>2. Health and Wellness Camps for Women</h4>
+        <p>We organize health camps that focus on women’s health issues, such as reproductive health, maternal care, and nutrition. These camps provide essential healthcare services and health education to women in underserved communities.</p>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+  <section class="container py-3 text-center">
+      <div class="Contact_us">
+          <a href="{% url 'contact_us' %}">
+            <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+          </a>  
+      </div>
+    </section>
+
+{% endblock %}
+
+
+</body>
+</html>

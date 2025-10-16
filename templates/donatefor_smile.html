@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation for Smile</title>
+</head>
+<style>
+    
+/* =============================================== 
+         custom cards 1 Styles 
+ =============================================== */ 
+
+
+    .custom-card i{
+        color: #d10000;
+        font-size: 80px;
+     
+    }
+     .custom-card1 a{
+        color: #222;
+        text-decoration: none;
+    }
+    .custom-card1 p{
+        font-size: 16px;
+        color: #555;
+        font-weight: 700;
+    }
+	.icon_class{
+		width: 70px;
+		height: 70px;
+        background-color: crimson;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+	}
+    /* .icon_class:hover{
+        background-color: #FEDE00;
+    } */
+.icon_class i {
+    color: #fff;
+    font-size: 40px;
+
+    transition: color 0.3s ease, opacity 0.3s ease; 
+   
+}
+
+.icon_class i:hover {
+    color: #FEDE00;
+    opacity: 1;
+}
+
+
+.donate_btn{
+  
+    background-color: #FEDE00;
+    border-radius: 20px;
+    padding: 8px 16px;
+    border: none;
+    color: crimson;
+    cursor: pointer;
+}
+
+.donate_btn:hover {
+    
+    background-color: #d10000;
+    color: #fff;
+}
+
+.custom-card1 {
+  flex: 1 1 220px;  
+  max-width: 230px; 
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 20px 20px rgba(183, 2, 2, 0.15);
+  transition: 0.3s;
+}
+.custom-card1:hover {
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* ek row me 5 cards */
+  gap: 20px; /* cards ke beech gap */
+}
+
+@media (max-width: 992px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+
+</style>
+<body>
+
+    <!-- Section Heading -->
+    <div class="text-center mb-5 mt-4">
+      <h3 class="fw-bold">
+        <h1 style="color: #FEDE00;">Donate  <span style="color: crimson;"> For Smile</span></h1>
+
+      </h3>
+      <div class="d-flex justify-content-center align-items-center">
+        <span class="border-top border-2 border-danger w-25"></span>
+      </div>
+    </div>
+
+<section>
+  <div class="container my-5">
+    
+  
+  <div class="d-flex flex-wrap justify-content-center gap-4">
+
+      <div class="cards-wrapper">
+        <div class="custom-card1">
+          <div class="icon_class"><i aria-hidden="true" class="fas fa-book-reader"></i></div>
+            <p>Help For Education</p>
+            <button class="donate_btn">Donate</button>
+        </div>
+
+        <div class="custom-card1">
+          <div class="icon_class">	<i aria-hidden="true" class="fas fa-briefcase-medical"></i></div>
+            <p>Help For Medical Emergency</p>
+            <button class="donate_btn">Donate</button>
+        </div>
+
+        <div class="custom-card1">
+          <div class="icon_class"><i aria-hidden="true" class="fas fa-globe"></i></div>
+            <p>Help For Environment Help	</p>
+            <button class="donate_btn">Donate</button>
+        </div>
+
+        <div class="custom-card1">
+          <div class="icon_class"><i aria-hidden="true" class="fas fa-graduation-cap"></i></div>
+            <p>Help For Legal Help</p>
+            <button class="donate_btn">Donate</button>
+        </div>
+
+        <div class="custom-card1">
+          <div class="icon_class"><i aria-hidden="true" class="fas fa-people-arrows"></i>	</div>
+            <p>Help For Social Reforms</p>
+            <button class="donate_btn">Donate</button>
+        </div>
+      </div>
+    </div>
+
+  </div> 
+      <!-- Button -->
+      <div class="text-center mt-5">
+          <a href="{% url 'contact_us' %}" class="btn btn-danger btn-lg ">
+            Contact US Now <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+      </div>
+   
+</section>
+
+<!--     
+ <section class="custom-section1 py-5">
+        <div class="container">
+            <div class="row text-center g-4" >
+
+          
+              <div class="col-6 col-md-2 mb-4 custom-column" style="border: 1px solid red;">
+					<div class="custom-card1 p-4 h-100">
+						<div class="icon_class"><i class="fas fa-male"></i></div>
+                        <a href="https://shriramnavyugtrust.org/software/" class="icon-link"></a>
+						<p class="mb-0" style="height: 60px;">Help For Education </p>
+                        <button class="donate_btn">Donate</button>
+						
+					</div>
+				</div>
+                
+
+				<div class="col-6 col-md-2 mb-4 custom-column">
+					<div class="custom-card1 p-4 h-100">
+						<div class="icon_class"><i class="fas fa-male"></i></div>
+                        <a href="https://shriramnavyugtrust.org/software/" class="icon-link"></a>
+						    <p class="mb-0" style="height: 60px;">Help For Medical Emergency</p>
+                            <button class="donate_btn">Donate</button>
+						
+					</div>
+				</div>
+				<div class="col-6 col-md-2 mb-4 custom-column">
+					<div class="custom-card1 p-4 h-100">
+						<div class="icon_class"><i class="fas fa-male"></i></div>
+                        <a href="https://shriramnavyugtrust.org/software/" class="icon-link"></a>
+						<p class="mb-0" style="height: 60px;">Help For Environment Help</p>
+                        <button class="donate_btn">Donate</button>
+						
+					</div>
+				</div>
+
+				<div class="col-6 col-md-2 mb-4 custom-column">
+					<div class="custom-card1 p-4 h-100">
+						<div class="icon_class"><i class="fas fa-male"></i></div>
+                        <a href="https://shriramnavyugtrust.org/software/" class="icon-link"></a>
+						<p class="mb-0" style="height: 60px;">Help For Legal Help</p>
+                        <button class="donate_btn">Donate</button>
+						
+					</div>
+				</div>
+
+
+			
+				<div class="col-6 col-md-2 mb-4 custom-column">
+					<div class="custom-card1 p-4 h-100">
+						<div class="icon_class"><i class="fas fa-male"></i></div>
+                        	<a href="https://shriramnavyugtrust.org/software/" class="icon-link"></a>
+						   <p class="mb-0" style="height: 60px;">Help For Social Reforms</p>
+                           <button class="donate_btn">Donate</button>
+					
+					</div>
+				</div>
+
+            </div> 
+
+          
+    <div class="text-center mt-5">
+      <a href="https://shriramnavyugtrust.org/our-team/" class="btn btn-danger btn-lg ">
+        Contact US Now <i class="fas fa-arrow-right ms-2"></i>
+      </a>
+    </div>
+        </div>
+    </section>
+</body>
+</html>-->
+</body>
+</html>

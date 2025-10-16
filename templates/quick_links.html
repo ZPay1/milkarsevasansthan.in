@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- <title> {% block title %} Quick links {% endblock %} </title> -->
+     <link rel="stylesheet" href="/static/quick_links.css">
+     <title>Quicl Links</title>
+     
+</head>
+<style>
+.custom-row {
+
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 1s ease-out; 
+}
+
+
+.custom-row.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+<body>
+
+
+    <!-- Section Heading -->
+    <div class="text-center mb-5 mt-4">
+      <h3 class="fw-bold">
+        <h2 style="color: #FEDE00;">Goals Of  <span style="color: crimson;">Quick Links</span></h2>
+
+      </h3>
+      <!-- <div class="d-flex justify-content-center align-items-center">
+        <span class="border-top border-2 border-danger w-25"></span>
+      </div> -->
+    </div>
+
+    
+    <section class="custom-section py-5">
+        <div class="container">
+            <div class="row text-center custom-row" >
+
+                <!-- Column 1 -->
+                 <div class="col-6 col-md-3 mb-4 custom-column" >
+                    <div class="custom-card p-2 h-100">
+               
+                        <p class="mb-0">Generate ID Card</p>
+                        <a href="https://shriramnavyugtrust.org/software/" class="icon-link">
+                            <i class="fas fa-id-card fa-2x mb-2"></i>
+                        
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="col-6 col-md-3 mb-4 custom-column">
+                    <div class="custom-card p-2 h-100">
+                        <p class="mb-0">Appointment Letter</p>
+                        <a href="https://shriramnavyugtrust.org/software/" class="icon-link">
+                            <i class="far fa-file-pdf fa-2x mb-2"></i>
+                        
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="col-6 col-md-3 mb-4 custom-column">
+                    <div class="custom-card p-2 h-100">
+                        <p class="mb-0">Generate Certificate</p>
+                        <a href="https://shriramnavyugtrust.org/software/" class="icon-link">
+                            <i class="fas fa-certificate fa-2x mb-2"></i>
+                            
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="col-6 col-md-3 mb-4 custom-column">
+                    <div class="custom-card p-2 h-100">
+                        <p class="mb-0">Donate Us</p>
+                        <a href="https://shriramnavyugtrust.org/software/donation_visitor_form" class="icon-link">
+                            <i class="fas fa-hand-holding-heart fa-2x mb-2"></i>
+                        
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+ 
+        
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const aboutSection = document.querySelector(".custom-row");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show"); // add animation class
+        observer.unobserve(entry.target); // optional: animate only once
+      }
+    });
+  }, { threshold: 0.3 }); // trigger when 30% visible
+
+  observer.observe(aboutSection);
+});
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+   

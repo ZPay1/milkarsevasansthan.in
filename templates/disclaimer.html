@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% block title %}Disclaimer{% endblock %}
+
+{% block content %}
+<style>
+  .disclaimer-container {
+
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 10px;
+ 
+  }
+  .disclaimer-container h1 {
+  
+
+    font-size: 2.7rem;
+    font-weight: 700;
+    text-align: center;
+    color: #cc0000;
+    margin-bottom: 10px;
+  
+  }
+  .disclaimer-container h5 {
+    text-align: center;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  .disclaimer-container h3 {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #c00;
+  }
+  .disclaimer-container p {
+    margin-bottom: 15px;
+    color: rgb(106, 104, 104);
+  }
+
+  /* ===============================
+       selectionStyles 
+    =============================== */  
+  ::selection {
+  background: purple;
+  color: #fff;
+}
+
+
+/* =================================
+        Contact Us Styles 
+  ================================== */
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+    background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Contact_us_button:hover {
+  color: #fff;
+  background-color: crimson;
+  transition: 0.3s ease;
+}
+.Contact_us_button a{
+    text-decoration: none;
+}
+
+</style>
+
+<div class="disclaimer-container">
+  <!-- Section Heading -->
+    <div class="text-center mb-5 mt-4">
+        <h3 class="fw-bold">
+          <h2 style="color: #FEDE00;">Disc<span style="color: crimson;"> laimer </span></h2>
+          
+
+        </h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <span class="border-top border-2 border-danger w-25"></span>
+        </div>
+    </div>
+  
+  <h5>Transparency is key.<br>Read this to understand your rights and our limitations.</h5>
+
+  <p>Last Updated:7/2/2025</p>
+
+  <p>The information provided on the Milkar Seva Sansthan platform, including but not limited to products, services, referral programs, and policies, is for general informational purposes only. While we strive to ensure that the information is accurate, complete, and up-to-date, Milkar Seva Sansthan Solutions Private Limited makes no guarantees or warranties of any kind, express or implied, about the reliability, suitability, or availability of the information for any purpose.</p>
+
+  <h3>General Information</h3>
+  <p>Milkar Seva Sansthan reserves the right to modify or update product details, policies, and features without prior notice.</p>
+  <p>Any reliance you place on the information provided is strictly at your own risk.</p>
+
+  <h3>Referral Program</h3>
+  <p>Earnings through the Milkar Seva Sansthan Referral Program are dependent on the fulfillment of all eligibility criteria and conditions, as stated in the Referral Agreement Policy.</p>
+  <p>Milkar Seva Sansthan does not guarantee any specific earnings or outcomes through the referral program. Performance, effort, and compliance with the policy may influence results.</p>
+
+  <h3>Limitation of Liability</h3>
+  <p>Milkar Seva Sansthan shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from the use of our app, services, or reliance on provided information. This includes but is not limited to loss of income, profits, data, or goodwill.</p>
+
+  <h3>External Links and Third Parties</h3>
+  <p>The Milkar Seva Sansthan platform may contain links to external websites or services. We do not endorse or assume responsibility for the content or practices of third-party platforms.</p>
+
+  <h3>Financial Advice</h3>
+  <p>Milkar Seva Sansthan does not provide professional financial or investment advice. Any earnings, savings, or financial benefits mentioned are examples and should not be construed as guarantees.</p>
+
+  <h3>User Responsibility</h3>
+  <p>Users are responsible for complying with all applicable local laws and regulations when using Milkar Seva Sansthan services.</p>
+  <p>It is the user’s responsibility to ensure the accuracy of their personal information, orders, and transactions on the platform.</p>
+
+  <h3>Updates to Disclaimer</h3>
+  <p>Milkar Seva Sansthan reserves the right to update this Disclaimer at any time without prior notice. Changes will be effective immediately upon posting on our platform.</p>
+
+  <h3>Contact Information</h3>
+  <p>For any questions regarding our policies, feel free to reach out to our support team at 
+    <a href="milkarseva@gmail.com" style="color:rgba(220, 4, 4, 0.833);">milkarseva@gmail.com</a> or call <strong style="
+    color: rgba(220, 4, 4, 0.833);">+91 9917623425</strong>.</p>
+    
+</div>
+
+
+
+    <section class="container py-3 text-center">
+        <div class="Contact_us">
+            <a href="{% url 'contact_us' %}">
+                <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+            </a>  
+        </div>
+  
+    </section>
+{% endblock %}

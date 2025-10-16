@@ -1,0 +1,81 @@
+{% extends "superadmin/base_header.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="pc-container">
+  <div class="pc-content">
+    <div class="card border-0 rounded-3 shadow-sm">
+      <div class="card-body">
+        <h2 class="mb-4">{{ title }}</h2>
+
+        <form method="POST" enctype="multipart/form-data" class="row g-3">
+          {% csrf_token %}
+
+          <div class="col-md-6">
+              <label class="form-label">{{ form.award_image.label }}</label>
+              {{ form.award_image }}
+              {% if form.award_image.errors %}
+                <div class="text-danger small">{{ form.award_image.errors }}</div>
+              {% endif %}
+            </div>
+
+          <!-- Title -->
+          <div class="col-md-6">
+            <label class="form-label" for="{{ form.title.id_for_label }}">
+              {{ form.title.label }}
+            </label>
+            {{ form.title }}
+            {% if form.title.errors %}
+              <div class="text-danger small">{{ form.title.errors }}</div>
+            {% endif %}
+          </div>
+
+          <!-- Description -->
+            <label class="form-label" for="{{ form.description.id_for_label }}">
+              {{ form.description.label }}
+            </label>
+          <div class="col-md-12">
+           
+            {{ form.description }}
+            {% if form.description.errors %}
+              <div class="text-danger small">{{ form.description.errors }}</div>
+            {% endif %}
+          </div>
+
+          <!-- Years -->
+          <div class="col-md-6">
+            <label class="form-label" for="{{ form.years.id_for_label }}">
+              {{ form.years.label }}
+            </label>
+            {{ form.years }}
+            {% if form.years.errors %}
+              <div class="text-danger small">{{ form.years.errors }}</div>
+            {% endif %}
+          </div>
+
+      
+          <!-- Is Active -->
+          <div class="col-md-12 form-check mt-3">
+            {{ form.is_active }}
+            <label class="form-check-label" for="{{ form.is_active.id_for_label }}">
+              {{ form.is_active.label }}
+            </label>
+          </div>
+
+          <!-- Buttons -->
+          <div class="col-12 d-flex gap-2 mt-3">
+            <button type="submit" class="btn btn-success">
+              <i class="ti ti-device-floppy"></i> Save
+            </button>
+            <a href="{% url 'award_achievements_list' %}" class="btn btn-secondary">
+              <i class="ti ti-arrow-left"></i> Cancel
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+ <html lang="en"> 
+<head>
+    <meta charset="UTF-8"> 
+    <title>Header</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<style>
+    /* Tooltip styling */
+#whatsapp-icon a::after {
+  content: "Chat on WhatsApp";
+  position: absolute;
+  bottom: 40px;
+  right: 35px;
+  background: #25d366;  /* WhatsApp green */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+#whatsapp-icon a:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#call-icon a::after {
+  content: "Call Us";
+  position: absolute;
+  bottom: 50px;
+  right: 35px;
+  background: rgb(25, 184, 247);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+#call-icon a:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+<body>
+<!-- HEADER START -->
+<header class="top-header">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between">
+
+        <!-- Logo -->
+        <div class="logo me-3">
+            <a href="{% url 'homepage_view' %}"><img src="/media/Logo.png" alt="Milkar Seva Sansthan"></a>
+        </div>
+
+       
+        <div class="header-text flex-grow-1 text-center text-lg-start mb-2 mb-lg-0">
+            <a class="navbar-brand text-danger fw-bold d-block" 
+               href="{% url 'homepage_view' %}">
+               Milkar Seva Sansthan
+            </a>
+            <p class="mb-0" style="font-size: 14px;">
+               ( संस्कृति, शिक्षा, स्वास्थ्य और जागरूकता पर केंद्रित )
+            </p>
+        </div>
+
+        <!-- Right side buttons -->
+        <div class="d-flex align-items-center flex-wrap justify-content-center justify-content-lg-end">
+            <a href="{% url 'signup_view' %}" class="btn btn-outline-light btn-sm custom-congrt-btn me-2">Apply for Membership</a>
+            <a href="{% url 'login_view' %}" class="btn btn-danger btn-outline-light custom-donate-btn">Login <i class="fas fa-user"></i></a>
+            <!-- <a href="{% url 'logout_view' %}" class="logut-icon"><i class="fa-solid fa-right-from-bracket" style="color: #fff; margin-left: 15px; font-size: 20px;"></i></a> -->
+            <a href="{% url 'logout_view' %}" class="btn btn-danger btn-outline-light custom-donate-btn" style="margin-left: 10px;">Logout <i class="fa-solid fa-right-from-bracket" style="font-size: 15px;"></i></a>
+
+        </div>
+    </div>
+</header>
+<!-- HEADER END -->
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm bg-danger text-light" style=" backdrop-filter: blur(10px);">
+        <div class="container-fluid">
+
+            <!-- Toggle button for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" 
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                
+                <!-- Left side menu -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'homepage_view' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'aboutus_view' %}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'mission_vision_view' %}">Mission & Vision</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'management_body_view' %}">Our management Body</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'team_view' %}">Our Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'achievement_view' %}">Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'certificate_view' %}">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'project_view' %}">Our Projects</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="">Press Media Gallery</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="{% url 'photo_gallery_view' %}">Photo Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="">Audit Report</a></li> -->
+                
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="charityDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Charity Activity
+                            </a>
+                            <ul class="dropdown-menu shadow-sm" aria-labelledby="charityDropdown">
+                                <li><a class="dropdown-item" href="">Gallery</a></li>
+                                <li><a class="dropdown-item" href="">Charity Videos</a></li>
+                                <li><a class="dropdown-item" href="">Event</a></li>
+
+                                <li><a class="dropdown-item" href="">Katha</a></li>
+                                <li><a class="dropdown-item" href="">Social Media Link</a></li>
+                                <li><a class="dropdown-item" href="">Blog</a></li>
+                            </ul> 
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="{% url 'donate_us_view' %}" class="btn btn-light  custom-donate-btn1" >Donate Us</a>
+                </div>
+
+                
+                </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+
+
+<!-- Floating WhatsApp Button -->
+
+<!-- <div id="whatsapp-icon">
+    <a href="https://wa.me/8193036931?text=hi" target="_blank">
+      <img src="/media/whtsappimg1.webp" alt="WhatsApp">
+    </a>
+  </div> -->
+
+
+<!-- Call Floating Icon -->
+<!-- <div id="call-icon">
+  <a href="tel:+918193036931">
+  <img src="/media/telephone.png" alt="Call">
+  </a>
+</div> -->
+
+<div id="whatsapp-icon">
+  <a href="https://wa.me/9917623425?text=hi" target="_blank" title="Chat on WhatsApp">
+    <img src="/media/whtsappimg1.webp" alt="WhatsApp">
+  </a>
+</div>
+
+<!-- <div id="call-icon">
+  <a href="tel:+919917623425" title="Call  Us">
+    <img src="/media/telephone.png" alt="Call">
+  </a>
+</div> -->
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (sirf ek hi baar include karo) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

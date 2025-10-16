@@ -1,0 +1,399 @@
+{% extends 'base.html' %}
+{% block title %} About us {% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+</head>
+<style>
+    
+
+/* =============================================== 
+          About Us Styles 
+ =============================================== */
+  .About_us {
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  gap: 30px; 
+  padding: 50px 20px;
+    opacity: 0;
+  transform: translateY(-50px);
+  transition: all 1s ease-out; 
+}
+
+
+.About_us.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-img img {
+  max-width: 200px; 
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-content {
+  flex: 1; 
+  min-width: 250px;
+}
+
+.About_us_h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #d10000;
+}
+
+.About_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #d10000;
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.About_us_button:hover {
+  background-color: #FEDE00;
+  color: #000;
+  transition: 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+  .About_us {
+    flex-direction: column; 
+    text-align: center;
+  }
+
+  .about-img {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+    .about {
+        padding: 60px 0;
+    }
+}
+
+
+section, .our-work-details, .our-impact, .join-us {
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 15px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Headings */
+h2, h4 {
+    color: #b22222; 
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Core Values */
+.core-values-list p {
+    font-weight: bold;
+    color: #6b6969;
+    margin: 10px 0 5px;
+    letter-spacing: 0.2px;
+}
+
+.core-values-list .core-desc {
+    color: #434242;
+    font-size: 16px;
+    display: block;
+    margin-left: 5px;
+}
+
+.core-values-list {
+    margin-left: 20px;
+    padding-left: 40px;
+    border-left: 4px solid #f7c59f;
+    margin-top: 15px;
+}
+
+
+/* Our Work items */
+.our-work-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+    margin-top: 20px;
+}
+.our-work-item {
+    background: #fff4e6;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #f7c59f;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.our-work-item h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #b22222;
+}
+
+/* Our Impact */
+.our-impact ul {
+    list-style: none;
+    padding: 0;
+}
+.our-impact li {
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border-left: 4px solid #f7c59f;
+}
+.our-impact li p {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+ol {
+    padding-left: 20px;
+}
+ol li {
+    margin-bottom: 8px;
+}
+
+
+ul {
+    padding-left: 20px;
+}
+ul li {
+    margin-bottom: 8px;
+}
+
+
+
+/* =============================================== 
+        Contact Us Styles 
+ =============================================== */ 
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Contact_us_button:hover {
+color: #fff;
+  background-color: crimson;
+  /* background-color: #FEDE00; */
+  transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .our-work-details {
+        grid-template-columns: 1fr; 
+    }
+    section, .our-work-details, .our-impact, .join-us {
+        padding: 0 10px;
+    }
+}
+
+
+
+</style>
+<body>
+    <!-- Section Heading -->
+   <div class="text-center mb-5 mt-4">
+        <h3 class="fw-bold">
+            <!-- <span class="text-danger">Our Team</span> Member -->
+            <h1 style="color: #FEDE00;">About<span style="color: crimson;"> Us</span></h1>
+            </h3>
+            <div class="d-flex justify-content-center align-items-center">
+                <span class="border-top border-2 border-danger w-25"></span>
+            </div>
+    </div>
+        
+    <!-- About us  -->
+    <section>
+ 
+        <div class="About_us d-flex flex-wrap align-items-center justify-content-between">
+        
+            <!-- Image -->
+           {% for about in aboutus %}
+            <div class="about-img mb-3 mb-md-0">
+                
+                <img src="{{ about.logo.url }}" alt="Milkar Seva Sansthan">
+            </div>
+
+                <!-- Content -->
+                <div class="about-content">
+                    <h2 class="About_us_h2">{{ about.title }}</h2>
+                    <p class="elementor-icon-box-description">
+                    {{ about.description }}
+                    </p>
+                        <a href="{% url 'aboutus_view' %}">
+                            <button class="About_us_button">{{ about.button_text }} <i class="fa-solid fa-arrow-right"></i></button>
+                        </a>
+                </div>
+              
+        
+        </div>
+         
+    </section>
+     {% endfor %}
+
+
+    
+        <div>
+            <h4 style="margin-left: 20px;">Core Values</h4>
+            <div class="core-values-list">
+                <p>1.Faith and Spirituality:</p>  Anchored in the values of Lord ShriRam, we promote spiritual growth and moral integrity.<br>
+                <p>2.Compassion:</p>  We believe in serving humanity with love, empathy, and a genuine commitment to making lives better.<br>
+                <p>3.Integrity:</p> Trust and transparency guide every decision and action we take.<br>
+                <p>4.Empowerment:</p> Enabling individuals and communities to realize their potential and lead dignified lives.<br>
+                <p>5.Preservation of Heritage:</p> Nurturing and celebrating the timeless traditions and culture of India.
+            </div>
+        </div>
+ 
+        <div>
+        <h4 style="margin-left: 20px; margin-top: 20px;">Our Work</h4>
+            <div class="core-values-list">
+                Milkar Seva Sansthan works across various dimensions to build a stronger and more connected society:
+            </div>
+        </div>
+   
+
+    <div class="our-work-details">
+        <div class="our-work-item">
+            <h3>  1. Education and Awareness</h3>
+        
+            Organizing spiritual and cultural workshops for all age groups.
+            Conducting seminars on life lessons inspired by the Ramayana and other scriptures.
+            Supporting underprivileged children by providing access to education and learning materials.
+        </div>
+        <div class="our-work-item">
+            <h3>  2. Social Welfare Initiatives</h3>
+            Distributing food, clothes, and essential items to those in need.
+            Arranging health camps and medical support for underprivileged communities.
+            Extending disaster relief during emergencies and natural calamities.
+        </div>
+        <div class="our-work-item">
+            <h3>  3. Cultural and Spiritual Events</h3>
+            Celebrating festivals and hosting religious gatherings to keep traditions alive.
+            Organizing kirtans, bhajans, and yagnas to spread spiritual awareness and devotion.
+            Promoting Indian arts, crafts, and heritage through fairs and exhibitions.
+        </div>
+        <div class="our-work-item">
+            <h3>  4. Youth and Community Empowerment</h3>
+            Inspiring youth to lead by example and engage in social service.
+            Offering vocational training programs to enhance skills and employment opportunities.
+            Building community centers to foster togetherness and collaboration.
+        </div>
+        </div>
+    <div class="our-impact">
+        <h4>Our Impact</h4>
+        <ul>
+            <li>    <p>Empowered Communities:</p> Improved the lives of countless individuals through our education, health, and welfare programs.
+            </li>
+            
+            <li><p>Cultural Revival:</p> Strengthened the connection between people and their roots by promoting Indian traditions and values.</li>
+            <li>    <p>Youth Engagement:</p> Encouraged active participation from the younger generation, instilling a sense of responsibility and leadership.
+            </li>
+            <li><p>Social Harmony:</p> Bridged gaps across communities by fostering mutual respect, understanding, and cooperation.
+            </li>
+            <li>
+            <p>Our journey is one of transformation, where every small step has created ripples of positive change.</p>
+
+            </li>
+        
+        </ul>
+    </div>
+
+        
+    <div class="our-impact">
+    <h4>Join Us</h4>
+    <ul>
+        <li>
+        Be a part of this divine mission and help us build a brighter, more united future! Milkar Seva Sansthan warmly welcomes individuals, organizations, and supporters who wish to make a meaningful difference in society.
+
+        </li>
+    </ul>
+    </div>   
+
+    <div class="our-impact">
+        <h4>How You Can Contribute</h4>
+        <ul>
+            <li>Volunteer: Join our team and help us in our various initiatives.</li>
+            <li>Donate: Your generous contributions can directly support our programs and beneficiaries.</li>
+            <li>Spread the Word: Share our vision with your family, friends, and community to create a wider impact.</li>
+        </ul>
+    </div>
+    
+
+    <div class="our-impact">
+            <h4>Why Join Us?</h4>
+            <ul>
+                <li>
+                    Be a part of meaningful change.
+                </li>
+                <li>
+                    Connect with like-minded individuals who share the vision of a better world.
+                </li>
+                <li>
+                    Experience the joy of giving back to society.
+                </li>
+            </ul>
+                 
+            </div>
+
+            <section class="container py-5 text-center">
+            <div class="Contact_us">
+                  <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+
+           </div>
+           </section>
+           
+
+
+  
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const aboutSection = document.querySelector(".About_us");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show"); // add animation class
+        observer.unobserve(entry.target); // optional: animate only once
+      }
+    });
+  }, { threshold: 0.3 }); // trigger when 30% visible
+
+  observer.observe(aboutSection);
+});
+
+
+
+</script>
+</body>
+</html>
+
+{% endblock %}

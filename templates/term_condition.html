@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% block title %}Terms & Conditions{% endblock %}
+
+{% block content %}
+<style>
+  .policy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    color: #333;
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+
+  .policy-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #b30000;
+    margin-bottom: 10px;
+  }
+
+  .policy-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+    font-style: italic;
+  }
+
+  .policy-section {
+    margin-bottom: 25px;
+  }
+
+  .policy-section h5 {
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 10px;
+  }
+
+  .policy-section ul {
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+
+  .policy-section p,
+  .policy-section li {
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  .last-updated {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: right;
+    margin-bottom: 20px;
+  }
+
+  .contact-info {
+    background: #f9f9f9;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+  }
+  
+/* =================================
+        Contact Us Styles 
+  ================================== */
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+    background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Contact_us_button:hover {
+  color: #fff;
+  background-color: crimson;
+  transition: 0.3s ease;
+}
+.Contact_us_button a{
+    text-decoration: none;
+}
+
+/* ===============================
+       selectionStyles 
+    =============================== */  
+  ::selection {
+  background: purple;
+  color: #fff;
+}
+</style>
+
+<div class="policy-container">
+    <!-- Section Heading -->
+    <div class="text-center mb-5 mt-4">
+        <h3 class="fw-bold">
+          <h2 style="color: #FEDE00;">Term & <span style="color: crimson;"> Conditions</span></h2>
+          
+
+        </h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <span class="border-top border-2 border-danger w-25"></span>
+        </div>
+    </div>
+  <p class="policy-subtitle">Please read these terms carefully before using our website.</p>
+
+  <div class="last-updated">Last Updated: 5 September 2025</div>
+
+  <div class="policy-section">
+    <h5>1. Introduction</h5>
+    <p>Welcome to Milkar Seva Sansthan. By accessing and using our website, you agree to comply with these Terms and Conditions. If you do not agree with any part of these terms, kindly refrain from using our services.</p>
+  </div>
+
+  <div class="policy-section">
+    <h5>2. Acceptance of Terms</h5>
+    <p>By using our website, you confirm that you understand, accept, and agree to be bound by these Terms & Conditions and any applicable laws. Updates may occur periodically, and it is your responsibility to review them.</p>
+  </div>
+
+  <div class="policy-section">
+    <h5>3. Use of Website</h5>
+    <ul>
+      <li>You agree to use the website strictly for lawful purposes.</li>
+      <li>Any misuse, including transmitting harmful software or content, is strictly prohibited.</li>
+      <li>You must not impersonate others or misrepresent your association with any entity.</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h5>4. Intellectual Property</h5>
+    <p>All content available on this site—including text, images, graphics, and logos—is the exclusive property of Milkar Seva Sansthan or its licensors. Unauthorized reproduction, modification, or redistribution is prohibited without prior written consent.</p>
+  </div>
+
+  <div class="policy-section">
+    <h5>5. User Contributions</h5>
+    <p>Any content, feedback, or materials you provide to us grants Milkar Seva Sansthan a royalty-free, perpetual, and worldwide license to use, reproduce, and distribute such materials, provided it does not infringe the rights of others.</p>
+  </div>
+
+  <div class="policy-section">
+    <h5>6. Third-Party Links</h5>
+    <p>Our website may provide links to third-party websites for your convenience. We do not control or endorse the content of these sites and are not responsible for any damages or issues arising from their use.</p>
+  </div>
+
+  <div class="policy-section">
+    <h5>7. Limitation of Liability</h5>
+    <p>Milkar Seva Sansthan shall not be held liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our website or its content.</p>
+  </div>
+
+  <div class="policy-section">
+    <h5>8. Indemnification</h5>
+    <p>You agree to defend, indemnify, and hold harmless Milkar Seva Sansthan, its officers, employees, and affiliates from any claims, damages, or expenses resulting from your misuse of the website or violation of these terms.</p>
+  </div>
+
+  <div class="policy-section">
+    <h5>9. Governing Law</h5>
+    <p>These Terms & Conditions shall be governed in accordance with the applicable laws of India. All disputes shall be subject to the exclusive jurisdiction of the competent courts.</p>
+  </div>
+
+  <div class="policy-section">
+    <h5>10. Contact Information</h5>
+    <div class="contact-info">
+      <strong>Milkar Seva Sansthan</strong><br>
+      <p>If you have any questions regarding these Terms and Conditions, please contact us at:</p>
+      <p>Email: <strong style="color:rgba(220, 4, 4, 0.833);">milkarseva@gmail.com</strong> </p>
+        <p>Phone: <strong style="color:rgba(220, 4, 4, 0.833);">+91 9917623425</strong></p>
+  
+     
+    </div>
+  </div>
+
+  <div class="policy-section">
+    <p><em>Thank you for visiting our website and supporting our mission.</em></p>
+  </div>
+</div>
+
+
+    <section class="container py-3 text-center">
+        <div class="Contact_us">
+            <a href="{% url 'contact_us' %}">
+                <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+            </a>  
+        </div>
+  
+    </section>
+{% endblock %}

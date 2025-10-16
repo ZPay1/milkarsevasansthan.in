@@ -1,0 +1,159 @@
+
+{% extends "superadmin/base_header.html" %}
+
+{% block title %}MilkarSeva Sansthan | dashboard{% endblock %}
+
+{% block content %}
+
+  <div class="pc-container">
+    <div class="pc-content">
+      <!-- [ breadcrumb ] end -->
+      <!-- [ Main Content ] start -->
+      <div class="row">          
+        <!-- [ sample-page ] start -->
+        <div class="col-md-6 col-xl-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="mb-2 f-w-400 text-muted">Total Appointment</h6>
+              <h4 class="mb-3">{{ appointment }}<span class="badge bg-light-primary border border-primary" style="margin-left: 5px;"><i
+                    class="ti ti-trending-up"></i> {{ appointment_f }}</span></h4>
+              <p class="mb-0 text-muted text-sm">Active Appointment <span class="text-primary">{{ appointment_p }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="mb-2 f-w-400 text-muted">Total Contacts </h6>
+              <h4 class="mb-3">{{ contacts }}<span class="badge bg-light-success border border-success" style="margin-left: 5px;"><i
+                    class="ti ti-trending-up"></i>{{ contacts_f }}</span></h4>
+              <p class="mb-0 text-muted text-sm">Active Contacts  <span class="text-success">{{ contacts_p }}</span></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-xl-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="mb-2 f-w-400 text-muted">Total Sales</h6>
+              <h4 class="mb-3">₹{{ all_sale }}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="mb-2 f-w-400 text-muted">ToDay Sales</h6>
+              <h4 class="mb-3">₹{{ today_sale }}</h4>
+             
+            </div>
+          </div>
+        </div>
+        
+        <!-- Orders Counts -->
+        <h5 class="mb-3">Orders</h5>
+        <div class="row">
+          <!-- [ sample-page ] start -->
+          <div class="row">
+            <div class="col-md-6 col-xl-3">
+              <a href="" style="text-decoration: none;">
+                <div class="card total-order-card border-0">
+                  <div class="card-body">
+                    <h6 class="total-order-title">Total Orders</h6>
+                    <h2 class="total-order-count">{{ all_orders_count }}</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+            <div class="col-md-6 col-xl-3">
+              <a href="" style="text-decoration: none;">
+                <div class="card total-order-card border-0">
+                  <div class="card-body">
+                    <h6 class="total-order-title">Today Orders</h6>
+                    <h2 class="total-order-count">{{ today_orders_count }}</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+            <div class="col-md-6 col-xl-3">
+              <a href="" style="text-decoration: none;">
+                <div class="card total-order-card border-0">
+                  <div class="card-body">
+                    <h6 class="total-order-title">New Orders</h6>
+                    <h2 class="total-order-count">{{ new_orders_count }}</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+            <div class="col-md-6 col-xl-3">
+              <a href="" style="text-decoration: none;">
+                <div class="card total-order-card border-0">
+                  <div class="card-body">
+                    <h6 class="total-order-title">Ready to Shipped Orders</h6>
+                    <h2 class="total-order-count">{{ ready_orders_count }}</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+            <div class="col-md-6 col-xl-3">
+              <a href="" style="text-decoration: none;">
+                <div class="card total-order-card border-0">
+                  <div class="card-body">
+                    <h6 class="total-order-title">Shipped Orders</h6>
+                    <h2 class="total-order-count">{{ shipped_orders_count }}</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+            <div class="col-md-6 col-xl-3">
+              <a href="" style="text-decoration: none;">
+                <div class="card total-order-card border-0">
+                  <div class="card-body">
+                    <h6 class="total-order-title">Delivered Orders</h6>
+                    <h2 class="total-order-count">{{ delivered_orders_count }}</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+            <div class="col-md-6 col-xl-3">
+              <a href="" style="text-decoration: none;">
+                <div class="card total-order-card border-0">
+                  <div class="card-body">
+                    <h6 class="total-order-title">Cancelled Orders</h6>
+                    <h2 class="total-order-count">{{ cancelled_orders_count }}</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+            <div class="col-md-6 col-xl-3">
+              <a href="" style="text-decoration: none;">
+                <div class="card total-order-card border-0">
+                  <div class="card-body">
+                    <h6 class="total-order-title">Failed Orders</h6>
+                    <h2 class="total-order-count">{{ failed_orders_count }}</h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+        </div>  
+          
+
+
+        
+  
+      </div>
+    </div>
+  </div>
+  <!-- [ Main Content ] end -->
+
+  {% endblock %}

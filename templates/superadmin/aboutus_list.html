@@ -1,0 +1,52 @@
+{% extends "superadmin/base_header.html" %}
+{% block content %}
+
+<div class="pc-container">
+    <div class="pc-content">
+        <div class="container mt-4">
+            <h2>About Us Sections</h2>
+            <a href="{% url 'aboutus_add' %}" class="btn btn-primary mb-3">Add Section</a>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                         <th>description</th>
+                          <th>button_text</th>
+                         <th>is_active</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for sec in sections %}
+             
+                    <tr>
+                        <td>
+                            {% if sec.logo %}
+                                <img src="{{ sec.logo.url }}" width="80">
+                            {% endif %}
+                        </td>
+                         
+                        <td>{{ sec.title }}</td>
+                        <td>{{ sec.description }}</td>
+                        <td>{{ sec.button_text }}</td>
+                        <td>{{ sec.is_active }}</td>
+                        <td>
+                            <a href="{% url 'aboutus_edit' sec.id %}" class="btn btn-warning btn-sm">Edit</a>
+                            <br>
+                        
+                            <a href="{% url 'aboutus_delete' sec.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Delete?')">Delete</a>
+                          
+                        </td>
+                    </tr>
+                  {% endfor %}  
+                </tbody>
+          
+            </table>
+        </div>
+
+
+  
+    </div>
+    </div>    
+{% endblock %}

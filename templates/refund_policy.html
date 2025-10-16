@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% block title %}Refund Policy{% endblock %}
+
+{% block content %}
+<style>
+  .policy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  .policy-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #d10000;
+    margin-bottom: 10px;
+  }
+
+  .policy-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+
+  .policy-section {
+    margin-bottom: 25px;
+  }
+
+  .policy-section h5 {
+    font-weight: 600;
+    color: #222;
+  }
+
+  .policy-section ul {
+    padding-left: 18px;
+  }
+
+  .policy-section p,
+  .policy-section li {
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  .last-updated {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  /* ===============================
+       selectionStyles 
+    =============================== */  
+  ::selection {
+  background: purple;
+  color: #fff;
+}
+
+
+/* =================================
+        Contact Us Styles 
+  ================================== */
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+    background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Contact_us_button:hover {
+  color: #fff;
+  background-color: crimson;
+  transition: 0.3s ease;
+}
+.Contact_us_button a{
+    text-decoration: none;
+}
+
+</style>
+
+<div class="policy-container">
+   <!-- Section Heading -->
+    <div class="text-center mb-5 mt-4">
+        <h3 class="fw-bold">
+          <h2 style="color: #FEDE00;">Refund <span style="color: crimson;"> Policy</span></h2>
+        </h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <span class="border-top border-2 border-danger w-25"></span>
+        </div>
+    </div>
+
+  <p class="policy-subtitle">We value your trust. Learn how refunds are processed with us.</p>
+
+  <div class="last-updated">Last Updated: 5 September 2025</div>
+
+  <div class="policy-section">
+    <h5>Eligibility for Refunds</h5>
+    <p>Refunds are applicable only in cases where the product or service delivered is found to be defective, damaged, or not as described. Requests for refunds must be initiated within 7 days of purchase.</p>
+  </div>
+
+  <div class="policy-section">
+    <h5>Non-Refundable Items</h5>
+    <ul>
+      <li>Digital products such as eBooks, online courses, and subscriptions</li>
+      <li>Services that have already been availed or partially completed</li>
+      <li>Products purchased during clearance sales or marked as “non-refundable”</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h5>Refund Process</h5>
+    <ul>
+      <li><strong>Request a Refund:</strong> Contact our customer support team with proof of purchase and reason for the refund.</li>
+      <li><strong>Verification:</strong> Our team will review your request and verify the issue.</li>
+      <li><strong>Processing:</strong> Approved refunds will be processed within 7–10 business days to the original payment method.</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h5>Refund Timelines</h5>
+    <p>Once approved, the refund amount will be credited within 7–10 business days. Please note that bank or payment gateway delays are beyond our control.</p>
+  </div>
+
+  <div class="policy-section">
+    <h5>Contact Information</h5>
+    <p>For any queries related to refunds, please reach out to our support team at <strong style="color:rgba(220, 4, 4, 0.833);">Milkar Seva Sansthan</strong> or call <strong style="color:rgba(220, 4, 4, 0.833);">+91 9917623425</strong>.</p>
+  </div>
+</div>
+
+
+  <section class="container py-3 text-center">
+        <div class="Contact_us">
+            <a href="{% url 'contact_us' %}">
+                <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+            </a>  
+        </div>
+  
+    </section>
+{% endblock %}

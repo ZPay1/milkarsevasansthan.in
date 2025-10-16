@@ -1,0 +1,118 @@
+
+{% extends 'base.html' %}
+{% block title %} Photo Gallery {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo gallery</title>
+
+  <style>
+   
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .row {
+      display: grid;
+   
+    
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+   
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+/* ===============================
+        Contact Us Styles 
+  ================================ */
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+    background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Contact_us_button:hover {
+  color: #fff;
+  background-color: crimson;
+  transition: 0.3s ease;
+}
+.Contact_us_button a{
+    text-decoration: none;
+}
+  </style>
+</head>
+<body>
+    
+     <!-- Section Heading -->
+    <div class="text-center mb-5 mt-4">
+        <h3 class="fw-bold">
+          <h1 style="color: #FEDE00;"> Our <span style="color: crimson;"> Gallery</span></h1>
+          
+
+        </h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <span class="border-top border-2 border-danger w-25"></span>
+        </div>
+      </div>
+  <section class="py-3">
+  <div class="container">
+    <div class="row g-4">
+      {% for img in images %}
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card shadow-sm h-100">
+          <img src="{{ img.image.url }}" class="card-img-top img-fluid"
+              alt="{{ img.title }}" style="height: 220px; object-fit: cover;">
+        
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  </section>
+
+  <section class="container py-3 text-center">
+        <div class="Contact_us">
+          <a href="{% url 'contact_us' %}">
+            <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+          </a>  
+      </div>
+    </section>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "superadmin/base_header.html" %}
+
+{% block title %} MilkarSeva Sansthan | dashboard{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+ <div class="pc-container">
+    <div class="pc-content">
+        <div class="container mt-2">
+            <h2>Sliders</h2>
+            <a href="{% url 'slider_add' %}" class="btn btn-primary mb-3">Add New Slider</a>
+            <table class="table table-bordered">
+                <thead>      
+                    <tr>
+                        
+                        <th>Image</th>
+                        <th>Small Title</th>
+                        <th>Large Title</th>
+                        <th>Description</th>
+                        <th>Logo Image</th>
+                        <th>Active</th>
+                         <!-- <th>Date</th> -->
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for slider in sliders %}
+                    <tr>
+                        <td>
+                            {% if slider.image %}
+                                <img src="{{ slider.image.url }}" width="100">
+                            {% endif %}
+                        </td>
+                        <td>{{ slider.title_small }}</td>
+                        <td>{{ slider.title_large }}</td>
+                        <td>{{slider.description }}</td>
+                        <td>{{ slider.logo}}</td>
+                        <td>{{ slider.is_active}}</td>
+                        <!-- <td>{{ slider.created_at}}</td> -->
+                        <!-- <td>{{ slider.is_active }}</td> -->
+                       <td>
+                            <!-- Edit button with pencil icon -->
+                            <a href="{% url 'slider_edit' slider.id %}" 
+                            class="btn btn-warning btn-sm" title="Edit">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+
+                            <!-- Delete button with trash icon -->
+                            <a href="{% url 'slider_delete' slider.id %}" 
+                            class="btn btn-danger btn-sm mt-2" 
+                            onclick="return confirm('Are you sure you want to delete this image?');"
+                            title="Delete">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="5">No sliders found.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+ </div>
+  </div>
+{% endblock %}

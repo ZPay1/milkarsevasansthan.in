@@ -1,0 +1,152 @@
+
+{% extends 'base.html' %}
+{% block title %} Achievements {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements</title>
+</head>
+<style>
+    
+/* =============================================== 
+        Contact Us Styles 
+ =============================================== */
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 20px; */
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+    background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Contact_us_button:hover {
+  color: #fff;
+  background-color: crimson;
+  transition: 0.3s ease;
+}
+.Contact_us_button a{
+    text-decoration: none;
+}
+
+/* =============================================== 
+        Cards Styles 
+ =============================================== */
+.card {
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.badge_class {
+  background-color: #FAD02C !important;
+  color: #000 !important;  
+  padding: 8px 15px !important;   
+  border-radius: 12px;            
+  font-size: 14px;               
+}
+
+.icon i{
+  font-size: 60px;
+}
+.trophy_image{
+  width: 60px;
+  height: 60px;
+}
+
+/* =============================================== 
+        Cards Styles 
+ =============================================== */    
+.card {
+    opacity: 0; /* pehle hidden */
+    transform: translateY(-70px);
+    transition: all 1s ease-out;
+    
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+
+<body>
+
+
+  
+<!-- Section Heading -->
+<div class="text-center mb-5 mt-4">
+  <h3 class="fw-bold">
+    <h1 style="color: #FEDE00;">Achievements & <span style="color: crimson;">Awards</span></h1>
+  </h3>
+  <div class="d-flex justify-content-center align-items-center">
+    <span class="border-top border-2 border-danger w-25"></span>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="row g-4">
+    
+    <!-- Achievement Card -->
+    {% for a in achievement %}
+      <div class="col-md-4">
+        <div class="card shadow border-0 h-100 text-center p-4">
+          <div class="icon mb-3 text-danger fs-1">
+            <!-- <i class="fa-solid fa-trophy"></i> -->
+            <img src="{{ a.award_image.url }}" alt="" class="trophy_image">
+          </div>
+          <h5 class="fw-bold">{{ a.title }}</h5>
+          <p class="text-muted">{{ a.description }}</p>
+          <span class="badge badge_class">{{ a.years }}</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Contact Button -->
+<section class="container py-3 text-center">
+     <div class="Contact_us">
+            <a href="{% url 'contact_us' %}">
+                <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+            </a>  
+        </div>
+</section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const aboutSections = document.querySelectorAll(".card"); // sabhi cards
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show"); // add animation class
+        observer.unobserve(entry.target);   // optional: animate only once
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // har card ko observe karo
+  aboutSections.forEach(section => observer.observe(section));
+});
+</script> 
+</body>
+</html>
+
+{% endblock %}

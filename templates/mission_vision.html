@@ -1,0 +1,164 @@
+
+{% extends 'base.html' %}
+{% block title %} Mission & Vision{% endblock %}
+{% block content %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.our-work-details.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.our-work-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+    margin-bottom: 20px;
+    transform: translateY(-70px);
+    transition: all 1s ease-out;
+    margin-top: 30px; 
+}
+@media (max-width: 768px) {
+    .our-work-details {
+   
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .our-work-item {
+   margin-top: 20px;
+    }
+}
+.our-work-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    /* border: 1px solid #f7c59f; */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.our-work-item h1 {
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: #b22222;
+    margin-top: 10px;
+}
+
+    
+/* ===================================
+        Icon class Styles 
+  ================================== */ 
+.icon_class1{
+		width: 70px;
+		height: 70px;
+    background-color: crimson;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+}
+.icon_class1 i {
+    color: #fff;
+    font-size: 40px;
+    transition: color 0.3s ease, opacity 0.3s ease; 
+}
+
+.icon_class1 i:hover {
+    color: #FEDE00;
+    opacity: 1;
+}
+
+
+/* =================================
+        Contact Us Styles 
+  ================================== */
+
+.Contact_us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+.Contact_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+    background-color: #FEDE00;
+  color: #333;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Contact_us_button:hover {
+  color: #fff;
+  background-color: crimson;
+  transition: 0.3s ease;
+}
+.Contact_us_button a{
+    text-decoration: none;
+}
+
+</style>
+<body>
+     <!-- Section Heading -->
+    <div class="text-center mb-5 mt-4">
+        <h3 class="fw-bold">
+          <h1 style="color: #FEDE00;">Mission/<span style="color: crimson;">Vision</span></h1>
+          
+
+        </h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <span class="border-top border-2 border-danger w-25"></span>
+        </div>
+    </div>
+
+    <section class="container py-5 text-center">
+        <div class="our-work-details d-flex flex-wrap align-items-center justify-content-between">
+
+        <div class="our-work-details">
+          {% for m in mission_vision %}
+            <div class="our-work-item">
+                <div class="icon_class1"><i aria-hidden="true" class="{{ m.icon}}"></i></div>
+                <h1>{{ m.title }}</h1>
+                
+                {{ m.description }}
+            </div>
+          {% endfor %}
+        
+        </div>
+    </section>
+
+    <section class="container py-3 text-center">
+        <div class="Contact_us">
+            <a href="{% url 'contact_us' %}">
+                <button class="Contact_us_button">Contact Us Now <i class="fa-solid fa-arrow-right"></i></button>
+            </a>  
+        </div>
+  
+    </section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const aboutSection = document.querySelector(".our-work-details");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show"); // add animation class
+        observer.unobserve(entry.target); // optional: animate only once
+      }
+    });
+  }, { threshold: 0.3 }); // trigger when 30% visible
+
+  observer.observe(aboutSection);
+});
+
+</script>
+           
+</body>
+</html>
+{% endblock %}

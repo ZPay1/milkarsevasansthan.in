@@ -1,0 +1,217 @@
+
+/* =============================================== 
+        Header Styles 
+ =============================================== */
+.top-header {
+  background-color: #222;
+  color: white;
+  padding: 10px 0;
+  width: 100%;
+  z-index: 1030;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.top-header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 100px;
+  min-height: 70px;
+  object-fit: cover;
+}
+
+.header-text a,
+.header-text p {
+  margin: 0;
+}
+
+.custom-congrt-btn,
+.custom-donate-btn {
+  border-radius: 20px !important;
+  padding: 8px 20px !important;
+  font-size: 15px !important;
+  background-color: crimson !important;
+
+}
+
+
+.custom-donate-btn:hover,
+.custom-congrt-btn:hover{
+  background-color: #FEDE00 !important;
+  transition: ease all 0.3s !important;
+   
+}
+
+
+.custom-donate-btn1 {
+  padding: 8px 20px !important;
+  font-size: 15px !important;
+  border-radius: 20px !important;
+  font-weight: bold !important;
+  background-color: #FFFF00 !important;
+}
+
+.custom-donate-btn1:hover {
+  background-color: #ffff !important;
+}
+
+.navbar-brand {
+    font-size: 32px !important;
+}
+
+
+.navbar-brand.custom-logo {
+    font-size: 32px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-header .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* .navbar-brand.custom-logo {
+    font-size: 10px !important;
+} */
+.navbar-brand {
+    font-size: 25px !important;
+}
+
+
+  .header-text {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .d-flex.align-items-center {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .custom-congrt-btn,
+  .custom-donate-btn {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* =============================================== 
+           Navbar Styles 
+ =============================================== */
+
+    .main-navbar {
+   
+      background-color: #f8f9fa;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+  .main-navbar .nav-link {
+      font-weight: 500;
+      padding: 10px 15px;
+      transition: all 0.3s;
+    }
+
+    .main-navbar .nav-link:hover,
+    .main-navbar .nav-item:hover .nav-link {
+      color: #0d6efd !important;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    } 
+
+    .navbar-nav .nav-link {
+    color: #fff;
+    transition: all 0.3s ease;
+    padding: 10px 10px; 
+    font-weight: 500;
+    font-size: 14px;
+    } 
+
+
+.navbar-nav .nav-link:hover {
+  color: #d10000 !important;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+}
+.dropdown-item {
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+}
+.dropdown-item:hover {
+  background-color: #eee;
+  color: #d10000;
+}
+.navbar-brand{
+font-family: 'Georgia', serif;font-size: 28px;
+}
+  
+/* =============================================== 
+            Whatsapp Icon
+ =============================================== */
+
+#whatsapp-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+
+#call-icon {
+  position: fixed;
+  bottom: 90px; 
+  right: 20px;
+  z-index: 999;
+}
+
+
+@keyframes iconPopup {
+  0% {
+      transform: scale(0);
+      opacity: 0;
+  }
+  50% {
+      transform: scale(1.2);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 0;
+  }
+}
+
+#whatsapp-icon img {
+ 
+  width: 45px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: iconPopup 5s ease infinite; 
+}
+#call-icon img {
+  width: 35px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: iconPopup 5s ease infinite; 
+}
+
+#whatsapp-icon img:hover, 
+#call-icon img:hover {
+  transform: scale(1.1);
+}
+
+
+
+
+

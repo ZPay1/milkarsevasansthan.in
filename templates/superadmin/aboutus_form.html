@@ -1,0 +1,77 @@
+{% extends "superadmin/base_header.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="pc-container">
+  <div class="pc-content">
+    <div class="container mt-4">
+
+      <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-body">
+          <h2 class="mb-4">{{ title }}</h2>
+
+          <form method="POST" enctype="multipart/form-data" class="row g-3">
+            {% csrf_token %}
+
+            
+            <div class="col-md-6">
+              <label class="form-label">{{ form.logo.label }}</label>
+              {{ form.logo }}
+              {% if form.logo.errors %}
+                <div class="text-danger small">{{ form.logo.errors }}</div>
+              {% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">{{ form.title.label }}</label>
+              {{ form.title }}
+              {% if form.title.errors %}
+                <div class="text-danger small">{{ form.title.errors }}</div>
+              {% endif %}
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">{{ form.description.label }}</label>
+              {{ form.description }}
+              {% if form.description.errors %}
+                <div class="text-danger small">{{ form.description.errors }}</div>
+              {% endif %}
+            </div>
+            
+
+
+            
+
+              <div class="col-md-6">
+              <label class="form-label">{{ form.button_text.label }}</label>
+              {{ form.button_text }}
+              {% if form.button_text.errors %}
+                <div class="text-danger small">{{ form.button_text.errors }}</div>
+              {% endif %}
+            </div>
+
+
+
+            <div class="col-md-12 form-check mt-3">
+              {{ form.is_active }}
+              <label class="form-check-label" for="{{ form.is_active.id_for_label }}">
+                {{ form.is_active.label }}
+              </label>
+            </div>
+
+            <div class="col-12 d-flex gap-2">
+              <button type="submit" class="btn btn-success">
+                <i class="ti ti-device-floppy"></i> Save
+              </button>
+              <a href="{% url 'aboutus_list' %}" class="btn btn-secondary">
+                <i class="ti ti-arrow-left"></i> Cancel
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>    
+</div>    
+{% endblock %}

@@ -1,0 +1,263 @@
+
+{% extends 'base.html' %}
+{% block title %} Homepage {% endblock %}
+{% block content %}
+<style>
+
+/* =============================
+          About Us Styles 
+ =============================== */
+  .About_us {
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  gap: 30px; 
+  padding: 50px 20px;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 1s ease-out; 
+}
+
+
+.About_us.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-img img {
+  max-width: 200px; 
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-content {
+  flex: 1; 
+  min-width: 250px;
+}
+
+.About_us_h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #d10000;
+}
+
+.About_us_button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #d10000;
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.About_us_button:hover {
+  background-color: #FEDE00;
+  color: #000;
+  transition: 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+  .About_us {
+    flex-direction: column; 
+    text-align: center;
+  }
+
+  .about-img {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+    .about {
+        padding: 60px 0;
+    }
+}
+
+
+/* ===============================
+        Cards Styles 
+  =============================== */  
+.card {
+    opacity: 0; /* pehle hidden */
+    transform: translateY(-70px);
+    transition: all 1s ease-out;
+    margin-top: 30px; 
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}  
+
+</style>
+
+
+{% include 'slider.html' %}
+
+
+{% include 'quick_links.html' %}
+  <!-- About us  -->
+    <section>
+        <div class="About_us d-flex flex-wrap align-items-center justify-content-between">
+            <!-- Image -->
+           {% for about in aboutus %}
+            <div class="about-img mb-3 mb-md-0">
+                
+                <img src="{{ about.logo.url }}" alt="Milkar Seva Sansthan">
+            </div>
+
+                <!-- Content -->
+                <div class="about-content">
+                    <h2 class="About_us_h2">{{ about.title }}</h2>
+                    <p class="elementor-icon-box-description">
+                    {{ about.description }}
+                    </p>
+                      <a href="{% url 'aboutus_view' %}">
+                            <button class="About_us_button">{{ about.button_text }} <i class="fa-solid fa-arrow-right"></i></button>
+                      </a>                
+                </div>
+        </div>
+         
+    </section>
+     {% endfor %}
+
+
+
+{% include 'goals.html' %}
+    <!-- ====================== Goals Section ====================== -->
+{% include "slider_images.html" %} 
+  <!-- ====================== Our management body Section ====================== -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <!-- Section Heading -->
+        <div class="text-center mb-5">
+          <h3 class="fw-bold">
+            <!-- <span class="text-danger">Our Team</span> Member -->
+            <h1 style="color: #FEDE00;">Goals Of  <span style="color: crimson;">Our Management Body</span></h1>
+
+          </h3>
+          <div class="d-flex justify-content-center align-items-center">
+            <span class="border-top border-2 border-danger w-25"></span>
+          </div>
+        </div>
+
+      <!-- Team Members Row -->
+      <div class="row text-center g-4">
+           {% for member in members %} 
+            <!-- Member 4 -->
+            <div class="col-6 col-md-3">
+           
+              <div class="card shadow-sm border-0 h-100 p-3">
+                <div class="icon mb-3 text-danger fs-2">
+                <i class="fa-solid fa-user-friends"></i>
+                 
+                </div>
+                <h5 class="fw-bold mb-1">{{ member.name }}</h5>
+                <p class="text-muted mb-1">({{ member.designation }})</p>
+                <small class="text-secondary">{{ member.organization }}</small>
+              </div>
+            </div>
+            {% endfor %} 
+          </div>
+       
+
+      <!-- Button -->
+      <div class="text-center mt-5">
+        <a href="{% url 'management_body_view' %}" class="btn btn-danger btn-lg">
+          See Full Management Body <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+</section>
+<!-- ====================== Our management body Section ====================== -->
+<!-- ====================== Our Team member Section ====================== -->
+{% include "gallery.html" %} 
+  <section class="py-5 bg-light">
+    <div class="container">
+      <!-- Section Heading -->
+      <div class="text-center mb-5">
+        <h3 class="fw-bold">
+          <!-- <span class="text-danger">Our Team</span> Member -->
+          <h1 style="color: #FEDE00;">Our Team <span style="color: crimson;"> Member</span></h1>
+
+        </h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <span class="border-top border-2 border-danger w-25"></span>
+        </div>
+      </div>
+
+      
+      <!-- Team Members Row -->
+      <div class="row text-center g-4">
+        {%  for t in team %}
+            <!-- Member 4 -->
+            <div class="col-6 col-md-3">
+              <div class="card shadow-sm border-0 h-100 p-3">
+                <div class="icon mb-3 text-danger fs-2">
+                  <i class="fas fa-user-friends"></i>
+                </div>
+                <h5 class="fw-bold mb-1">{{ t.name }}</h5>
+                <p class="text-muted mb-1">({{ t.role }})</p>
+                <small class="text-secondary">{{ t.organization }}</small>
+              </div>
+            </div>
+          {% endfor %}  
+      </div>
+
+      <!-- Button -->
+      <div class="text-center mt-5">
+        <a href="{% url 'team_view' %}" class="btn btn-danger btn-lg">
+          See Full Member List <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+<!-- ====================== Our Team member Section ====================== -->
+{% include "donatefor_smile.html" %} 
+{% include "donation_popup.html" %} 
+
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const aboutSection = document.querySelector(".About_us");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show"); // add animation class
+        observer.unobserve(entry.target); // optional: animate only once
+      }
+    });
+  }, { threshold: 0.3 }); // trigger when 30% visible
+
+  observer.observe(aboutSection);
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const aboutSections = document.querySelectorAll(".card"); // sabhi cards
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show"); // add animation class
+        observer.unobserve(entry.target);   // optional: animate only once
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // har card ko observe karo
+  aboutSections.forEach(section => observer.observe(section));
+});
+
+
+</script>
+
+
+
+{% endblock %}
