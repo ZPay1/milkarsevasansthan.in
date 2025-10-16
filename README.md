@@ -1,1 +1,1 @@
-<img width="1920" height="10375" alt="httpsmilkarsevasansthan in" src="https://github.com/user-attachments/assets/058f6644-41cc-4e9d-8161-b2723616ff90" />
+<img width="946" height="419" alt="image" src="https://github.com/user-attachments/assets/85b39994-e87d-4f3d-9cb3-f6fa5f52957e" />
